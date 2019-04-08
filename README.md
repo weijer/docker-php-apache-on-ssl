@@ -27,6 +27,6 @@ docker run --rm -v $PWD:/root/app --rm docker-php-apache-on-ssl:<version>
 ## Use Dockerhub image
 
 ```bash
-docker pull raccoondog/docker-php-apache-on-ssl:<version>
-docker run --rm -v $PWD:/var/www/html raccoondog/docker-php-apache-on-ssl:<version>
+docker pull blackellis/docker-php-apache-on-ssl:<version>
+docker run --rm -v $PWD:/var/www/html blackellis/docker-php-apache-on-ssl:<version>
 ```
