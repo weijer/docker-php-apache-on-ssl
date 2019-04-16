@@ -22,18 +22,18 @@
 ### build
 
 ```bash
-docker build -t docker-php-apache-on-ssl:7.1-solid ./7/7.1-solid
+docker build -t docker-php-apache-on-ssl:7.1 ./7/7.1
 ```
 
 ### run container
 
 ```bash
-docker run --rm -v $PWD:/root/app --rm docker-php-apache-on-ssl:7.1-solid
+docker run --rm -v $PWD:/root/app --rm docker-php-apache-on-ssl:7.1
 ```
 
 ## Use Dockerhub image
 
 ```bash
-docker pull blackellis/docker-php-apache-on-ssl:7.1-solid
-docker run --rm -v $PWD:/var/www/html blackellis/docker-php-apache-on-ssl:7.1-solid
+docker pull blackellis/docker-php-apache-on-ssl:7.1
+docker run --rm -v $PWD:/var/www/html blackellis/docker-php-apache-on-ssl:7.1
 ```
