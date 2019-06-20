@@ -28,7 +28,7 @@ docker build -t docker-php-apache-on-ssl:7.1 ./7/7.1
 ### run container
 
 ```bash
-docker run --rm -v $PWD:/root/app docker-php-apache-on-ssl:7.1
+docker run --rm -v $PWD:/var/www/html docker-php-apache-on-ssl:7.1
 ```
 
 ## Use Dockerhub image

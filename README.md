@@ -21,7 +21,7 @@
 ### run container
 
 ```bash
-docker run --rm -v $PWD:/root/app docker-php-apache-on-ssl:<version>
+docker run --rm -v $PWD:/var/www/html docker-php-apache-on-ssl:<version>
 ```
 
 ## Use Dockerhub image
