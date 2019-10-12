@@ -1,17 +1,18 @@
 FROM php:7.2-apache
 
-ENV OS_LOCALE="en_US.UTF-8"
-RUN apt-get update && apt-get install -y locales && locale-gen ${OS_LOCALE}
-
 # 安装php扩展
-RUN \
-    BUILD_DEPS='software-properties-common' \
-    && dpkg-reconfigure locales \
-        && apt-get install --no-install-recommends -y $BUILD_DEPS \
-        && add-apt-repository -y ppa:ondrej/php \
-        && add-apt-repository -y ppa:ondrej/apache2 \
-        && apt-get update \
-    && apt-get install -y php7.2-zip php7.2-intl php7.2-gd php7.2-pgsql php7.2-mysql php7.2-redis php7.2-bcmath php-pear
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+    && docker-php-ext-install -j$(nproc) iconv \
+    && docker-php-ext-install -j$(nproc) zip \
+    && docker-php-ext-install -j$(nproc) intl \
+    && docker-php-ext-install -j$(nproc) mysql \
+    && docker-php-ext-install -j$(nproc) redis \
+    && docker-php-ext-install -j$(nproc) bcmath \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
 
 ADD ssl.conf /etc/apache2/sites-available/ssl.conf
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
