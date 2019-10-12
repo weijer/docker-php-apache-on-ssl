@@ -17,6 +17,7 @@ RUN pecl install redis-4.0.1 \
     && docker-php-ext-enable redis
 
 ADD ssl.conf /etc/apache2/sites-available/ssl.conf
+ADD default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 ADD entrypoint.sh /opt/entrypoint.sh
 
