@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
 RUN pecl install redis-4.0.1 \
     && docker-php-ext-enable redis
 
+ADD openssl.cnf /usr/lib/ssl/openssl.cnf
 ADD ssl.conf /etc/apache2/sites-available/ssl.conf
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 ADD entrypoint.sh /opt/entrypoint.sh
